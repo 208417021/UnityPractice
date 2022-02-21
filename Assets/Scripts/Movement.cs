@@ -6,14 +6,14 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 100f;
     [SerializeField] float rotationSpeed = 50f;
-    [SerializeField] float audioVolume = 1f;
+    // [SerializeField] float audioVolume = 1f;
     // Start is called before the first frame update
     Rigidbody rb;
     AudioSource audioSource;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        audioSource = GetComponent<AudioSource>();
+        // audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -21,7 +21,7 @@ public class Movement : MonoBehaviour
     {
         ProcessInput();
         
-        audioSource.volume = audioVolume;
+        // audioSource.volume = audioVolume;
     }
 
     void ProcessInput()
@@ -32,8 +32,8 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * moveSpeed * Time.deltaTime); //move to the direction, Vector3.up = (0,1,0)
             //remember the mass of game object to use AddRelativeForce()
             //Debug.Log("SPACE");
-            if(!audioSource.isPlaying)
-                audioSource.Play();
+            // if(!audioSource.isPlaying)
+            //     audioSource.Play();
         }
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))

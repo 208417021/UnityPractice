@@ -8,8 +8,9 @@ public class CollsionHandler : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene().buildIndex; // need to transfer scene to index
         Debug.LogError(currentScene);
-        Debug.LogError(SceneManager.sceneCountInBuildSettings);
+        // Debug.LogError(SceneManager.sceneCountInBuildSettings);
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         switch (collision.gameObject.tag)
@@ -36,7 +37,7 @@ public class CollsionHandler : MonoBehaviour
     }
     void NextLevel(int currentScene)
     {
-        if (currentScene == SceneManager.sceneCountInBuildSettings)
+        if (currentScene + 1 == SceneManager.sceneCountInBuildSettings)
             SceneManager.LoadScene(0);
         else
             SceneManager.LoadScene(currentScene + 1);
