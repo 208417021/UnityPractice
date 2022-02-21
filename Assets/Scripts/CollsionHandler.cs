@@ -3,11 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class CollsionHandler : MonoBehaviour
 {
-    int currentScene = 0;
+    private int currentScene = 0;
+    [SerializeField] float delayTime = 1f;
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex; // need to transfer scene to index
-        Debug.LogError(currentScene);
+        GetComponent<Movement>().enabled = true;
+        // Debug.LogError(currentScene);
         // Debug.LogError(SceneManager.sceneCountInBuildSettings);
     }
 
@@ -26,11 +28,17 @@ public class CollsionHandler : MonoBehaviour
                 break;
             default:
                 /*Debug.Log("Rocket crashed");*/
-                LoadScene(currentScene);
+                GetComponent<Movement>().enabled = false;
+                Invoke("DelaySequence", delayTime);
+                // LoadScene(currentScene);
                 break;
         }
     }
 
+    void DelaySequence()
+    {
+        LoadScene(currentScene);
+    }
     void LoadScene(int currentScene)
     {   
         SceneManager.LoadScene(currentScene);
