@@ -4,7 +4,10 @@ using UnityEngine.SceneManagement;
 public class CollsionHandler : MonoBehaviour
 {
     private int currentScene = 0;
+    private string eventTag = "";
     [SerializeField] float delayTime = 1f;
+    [SerializeField] ParticleSystem finish;
+    [SerializeField] ParticleSystem crash;
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex; // need to transfer scene to index
@@ -15,13 +18,18 @@ public class CollsionHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        switch (collision.gameObject.tag)
+        eventTag = collision.gameObject.tag;
+        Debug.Log(eventTag);
+        switch (eventTag)
         {
             case "Friendly":
                 Debug.Log("Game Start");
                 break;
             case "Finish":
-                NextLevel(currentScene);
+                //NextLevel(currentScene);
+                GetComponent<Movement>().enabled = false;
+                finish.Play();
+                Invoke("DelaySequence", delayTime);
                 break;
             case "Fuel":
                 Debug.Log("collected fuel");
@@ -29,6 +37,7 @@ public class CollsionHandler : MonoBehaviour
             default:
                 /*Debug.Log("Rocket crashed");*/
                 GetComponent<Movement>().enabled = false;
+                crash.Play();
                 Invoke("DelaySequence", delayTime);
                 // LoadScene(currentScene);
                 break;
@@ -37,7 +46,10 @@ public class CollsionHandler : MonoBehaviour
 
     void DelaySequence()
     {
-        LoadScene(currentScene);
+        if(eventTag.Equals("Finish"))
+            NextLevel(currentScene);
+        else
+            LoadScene(currentScene);
     }
     void LoadScene(int currentScene)
     {   
