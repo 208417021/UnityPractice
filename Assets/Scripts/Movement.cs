@@ -6,6 +6,9 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] float moveSpeed = 100f;
     [SerializeField] float rotationSpeed = 50f;
+    [SerializeField] ParticleSystem mainEngine;
+    [SerializeField] ParticleSystem leftThruster;
+    [SerializeField] ParticleSystem rightThruster;
     // [SerializeField] float audioVolume = 1f;
     // Start is called before the first frame update
     Rigidbody rb;
@@ -34,26 +37,38 @@ public class Movement : MonoBehaviour
             //Debug.Log("SPACE");
             // if(!audioSource.isPlaying)
             //     audioSource.Play();
+            if(!mainEngine.isEmitting)
+                mainEngine.Play();
         }
+        else
+            mainEngine.Stop();
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
             //transform.Rotate(-1, 0, 0);
             Rotation(rotationSpeed);
+            if (!leftThruster.isEmitting)
+                leftThruster.Play();
             //Debug.Log(GetComponent<Transform>().rotation.x);
         }
+        else
+            leftThruster.Stop();
 
         if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
         {
             Rotation(-rotationSpeed);
+            if (!rightThruster.isEmitting)
+                rightThruster.Play();
             //Debug.Log(GetComponent<Transform>().rotation.x);
         }
+        else
+            rightThruster.Stop();
     }
 
     private void Rotation(float speed)
     {
         rb.freezeRotation = true; //freezing rotation if hit obstacle
-        transform.Rotate(Vector3.forward * speed * Time.deltaTime);
+        transform.Rotate(Vector3.left * speed * Time.deltaTime);
         rb.freezeRotation = false;
     }
 }
