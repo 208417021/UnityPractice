@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 575792462}
   - component: {fileID: 575792461}
   - component: {fileID: 575792460}
+  - component: {fileID: 575792464}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -275,6 +276,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &575792464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575792459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bc597b45739064a9f3725c3b174319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementVector: {x: 0, y: 34, z: 0}
+  movementFactor: 0.515
+  period: 2
 --- !u!1 &660415068
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +633,18 @@ MonoBehaviour:
   delayTime: 1
   finish: {fileID: 198631066050499358, guid: 62198a3a5dbb64a4f9e1618929224faa, type: 3}
   crash: {fileID: 198204746014789312, guid: ab79a37535b979f48b6de56e3a0a5cb0, type: 3}
+--- !u!114 &760082608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760082600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8bc22804884c744878f68b1b340287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &914635866
 GameObject:
   m_ObjectHideFlags: 0

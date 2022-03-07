@@ -299,6 +299,7 @@ GameObject:
   - component: {fileID: 4386434393782938308}
   - component: {fileID: 5552577330424794219}
   - component: {fileID: 98812977190147100}
+  - component: {fileID: 446230310762766775}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -376,6 +377,18 @@ MonoBehaviour:
   mainEngine: {fileID: 8616950828910250816}
   leftThruster: {fileID: 819410420493132676}
   rightThruster: {fileID: 7586622392440213657}
+--- !u!114 &446230310762766775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6153711849932976562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc8bc22804884c744878f68b1b340287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7006135010793736214
 GameObject:
   m_ObjectHideFlags: 0
