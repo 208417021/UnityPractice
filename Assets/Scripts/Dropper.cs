@@ -5,7 +5,7 @@ using UnityEngine;
 public class Dropper : MonoBehaviour
 {
     Rigidbody rb;
-    [SerializeField] double timeMark = 3.0;
+    [SerializeField] [Range(0, 1000)]float dropSpeed = 200f;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,10 +19,12 @@ public class Dropper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("Time is over 3 seconds. " + timeMark);
-        if (Time.time > timeMark)
+        // Debug.Log("Drop");
+        // Debug.LogError(GameObject.Find("Player").transform.position.x);
+        if (GameObject.Find("Player").transform.position.x > -15f)
         {
             rb.useGravity = true;
+            rb.AddRelativeForce(Vector3.down * dropSpeed * Time.deltaTime);
         }
     }
 }

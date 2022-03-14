@@ -41,10 +41,11 @@
      <Compile Include="Assets\Scripts\Movement.cs" />
      <Compile Include="Assets\Scripts\CollsionHandler.cs" />
      <Compile Include="Assets\Scripts\Dropper.cs" />
-     <Compile Include="Assets\Scripts\NewScript.cs" />
-     <Compile Include="Assets\Scripts\Scoreer.cs" />
      <Compile Include="Assets\Scripts\Oscillator.cs" />
+     <Compile Include="Assets\Scripts\NewScript.cs" />
      <Compile Include="Assets\Scripts\QuitApplication.cs" />
+     <Compile Include="Assets\Scripts\Scoreer.cs" />
+     <Compile Include="Assets\Scripts\FlameController.cs" />
     <Reference Include="UnityEngine">
         <HintPath>C:\Program Files\Unity\Hub\Editor\2020.3.30f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
