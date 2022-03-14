@@ -4,21 +4,41 @@ using UnityEngine;
 
 public class FlameController : MonoBehaviour
 {
-    [SerializeField] int playTime = 3;
-    [SerializeField] int stopTime = 1;
+    [SerializeField] float playTime = 3f;
+    [SerializeField] float stopTime = 1f;
     [SerializeField] ParticleSystem flame;
+    private float temp1, temp2;
     // Start is called before the first frame update
     void Start()
     {
-        
+        temp1 = playTime;
+        temp2 = stopTime;
     }
 
     // Update is called once per frame
     void Update()
     {
         // float time = Time.time;
-        Invoke("KeepPlaying", stopTime);
+        
         // KeepPlaying();
+        if(temp1 > 0)
+        {
+            temp2 = stopTime;
+            KeepPlaying();
+            temp1 -= Time.deltaTime;
+            Debug.Log("playTime: " + temp1);
+  
+        }
+        else
+        {
+            if(temp2 <= 0)
+            {
+                temp1 = playTime;
+            }
+            StopPlaying();
+            temp2 -= Time.deltaTime;
+            Debug.Log("stopTime: " + temp2);
+        }
     }
 
     void StopPlaying()
@@ -32,7 +52,7 @@ public class FlameController : MonoBehaviour
     void KeepPlaying()
     {
         flame.Play();
-        Invoke("StopPlaying", playTime);
+        // Invoke("StopPlaying", playTime);
         Debug.Log("play");
     }
 }

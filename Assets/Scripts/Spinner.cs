@@ -4,17 +4,14 @@ using UnityEngine;
 
 public class Spinner : MonoBehaviour
 {
-    [SerializeField] float spinSpeed = 1.0f;
+    [SerializeField] float spinSpeed = 1f;
+    [SerializeField] bool reverse = false;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, spinSpeed, 0);
+        if(reverse)
+            transform.Rotate(0, spinSpeed * -1f, 0);
+        else
+            transform.Rotate(0, spinSpeed, 0);
     }
 }
