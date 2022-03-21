@@ -609,7 +609,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3610387876326197203, guid: 5a1df21e0ffe0b74b928934252cc2988, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.3
+      value: 11.08
       objectReference: {fileID: 0}
     - target: {fileID: 3610387876326197203, guid: 5a1df21e0ffe0b74b928934252cc2988, type: 3}
       propertyPath: m_LocalPosition.y
@@ -815,7 +815,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.11348048, y: -0.04721694, z: 0.005399219, w: 0.992403}
+  m_LocalRotation: {x: 0.11348047, y: -0.047216933, z: 0.005399218, w: 0.992403}
   m_LocalPosition: {x: -20.23, y: 11.19, z: -26.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -968,6 +968,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 1
+  reverse: 0
 --- !u!1 &1090789155
 GameObject:
   m_ObjectHideFlags: 0
@@ -1081,6 +1082,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 1
+  reverse: 0
+--- !u!114 &1159267786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159267783}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bc597b45739064a9f3725c3b174319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveRange: 5
+  period: 2
+  moveXAxis: 0
+  moveYAxis: 1
+  moveZAxis: 0
+  reverse: 1
 --- !u!4 &1182572869 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6234707345032733984, guid: aa0736b15c956614986681758ea262e2, type: 3}
@@ -1181,7 +1201,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372812960}
-  m_LocalRotation: {x: 0.11348048, y: -0.04721694, z: 0.005399219, w: 0.992403}
+  m_LocalRotation: {x: 0.11348047, y: -0.047216933, z: 0.005399218, w: 0.992403}
   m_LocalPosition: {x: -20.23, y: 11.19, z: -26.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1434,6 +1454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinSpeed: 1
+  reverse: 0
 --- !u!1 &1908600408
 GameObject:
   m_ObjectHideFlags: 0
@@ -1703,6 +1724,7 @@ GameObject:
   - component: {fileID: 2102076845}
   - component: {fileID: 2102076844}
   - component: {fileID: 2102076843}
+  - component: {fileID: 2102076846}
   m_Layer: 0
   m_Name: NiObstacle(4)
   m_TagString: Untagged
@@ -1718,7 +1740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102076841}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 31.96, y: 9.48, z: -35.15095}
+  m_LocalPosition: {x: 31.96, y: 8.6, z: -35.15095}
   m_LocalScale: {x: 1, y: 10, z: 5}
   m_Children: []
   m_Father: {fileID: 1199545004}
@@ -1786,6 +1808,24 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2102076841}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2102076846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2102076841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5bc597b45739064a9f3725c3b174319, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveRange: 10
+  period: 5
+  moveXAxis: 0
+  moveYAxis: 1
+  moveZAxis: 0
+  reverse: 1
 --- !u!1001 &6234707346141824101
 PrefabInstance:
   m_ObjectHideFlags: 0
