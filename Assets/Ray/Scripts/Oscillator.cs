@@ -66,7 +66,7 @@ public class Oscillator : MonoBehaviour
                 offset = Vector3.back * movementFactor;
             }
         }
-        Debug.Log(startPosition + " " + offset);
+        // Debug.Log(startPosition + " " + offset);
         transform.position = startPosition + offset;
     }
 }

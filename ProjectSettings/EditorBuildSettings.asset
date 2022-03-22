@@ -6,12 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/level1.unity
-    guid: 19f764a5ed054394cafae86c882840c6
-  - enabled: 1
     path: Assets/Scenes/level2.unity
     guid: 8b6073d871b52ce4089ebb1d605c0df5
   - enabled: 1
+    path: Assets/Scenes/level1.unity
+    guid: 19f764a5ed054394cafae86c882840c6
+  - enabled: 1
     path: Assets/Scenes/Nihao.unity
     guid: b80d98159f77f30428faabbcbadb7c68
+  - enabled: 1
+    path: Assets/Scenes/SampleScene.unity
+    guid: eac7c4f4d87e5f84c93d1c11a3e9bc0a
   m_configObjects: {}

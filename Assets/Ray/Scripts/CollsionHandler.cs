@@ -7,12 +7,13 @@ public class CollsionHandler : MonoBehaviour
     private string eventTag = "";
     private bool isRocket, isRoller;
     [SerializeField] float delayTime = 1f;
+    [SerializeField] bool isCheating = false;
     [SerializeField] ParticleSystem finish;
     [SerializeField] ParticleSystem crash;
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex; // need to transfer scene to index
-        Debug.Log("TEST: " + GetComponent<RocketMovement>() == null);
+        // Debug.Log("TEST: " + GetComponent<RocketMovement>() == null);
         isRocket = !GetComponent<RocketMovement>().Equals(null);
         isRoller = !GetComponent<RollerMovement>().Equals(null);
 
@@ -53,10 +54,11 @@ public class CollsionHandler : MonoBehaviour
                 Invoke("DelaySequence", delayTime);
                 break;
             case "Fuel":
-                Debug.Log("collected fuel");
+                // Debug.Log("collected fuel");
                 break;
             default:
                 /*Debug.Log("Rocket crashed");*/
+                if(isCheating) break;
                 if(isRocket)
                 {
                     GetComponent<RocketMovement>().enabled = false;
