@@ -14,8 +14,8 @@ public class CollsionHandler : MonoBehaviour
     {
         currentScene = SceneManager.GetActiveScene().buildIndex; // need to transfer scene to index
         // Debug.Log("TEST: " + GetComponent<RocketMovement>() == null);
-        isRocket = !GetComponent<RocketMovement>().Equals(null);
-        isRoller = !GetComponent<RollerMovement>().Equals(null);
+        isRocket = GetComponent<RocketMovement>() != null;
+        isRoller = GetComponent<RollerMovement>() != null;
 
         if(isRocket)
         {

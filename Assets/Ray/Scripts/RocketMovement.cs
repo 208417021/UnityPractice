@@ -3,11 +3,16 @@ using UnityEngine.SceneManagement;
 // using CollsionHandler;
 public class RocketMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 100f;
+    private float fuelMount = 100f;
+    [SerializeField] float fuelMax = 100f;
+    [SerializeField] float fuelRecovery = 10f;
+    [SerializeField] float fuelConsume = 35f;
+    [SerializeField] float moveSpeed = 800f;
     [SerializeField] float rotationSpeed = 50f;
     [SerializeField] ParticleSystem mainEngine;
     [SerializeField] ParticleSystem leftThruster;
     [SerializeField] ParticleSystem rightThruster;
+    [SerializeField] TMPro.TextMeshProUGUI fuel;
     // [SerializeField] float audioVolume = 1f;
     // Start is called before the first frame update
     Rigidbody rb;
@@ -15,6 +20,9 @@ public class RocketMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        // fuel = GetComponent<TextMesh>();
+        fuel.text = "Finally";
+        fuelMount = fuelMax;
         // audioSource = GetComponent<AudioSource>();
     }
 
@@ -24,7 +32,7 @@ public class RocketMovement : MonoBehaviour
         ProcessInput();
         if(transform.position.y < 0)
         {
-            GetComponent<RocketMovement>().enabled = false;
+            GetComponent<RocketMovement>().enabled = false; // dangerous for initalization
             Invoke("DelaySequence", 1);
         }
         // audioSource.volume = audioVolume;
@@ -36,10 +44,14 @@ public class RocketMovement : MonoBehaviour
     }
     void ProcessInput()
     {
+        fuel.text = "Fuel: " + Mathf.Round(fuelMount);
+        if(fuelMount < fuelMax) fuelMount += fuelRecovery * Time.deltaTime;
+        if(fuelMount <= 0) return;
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
             //transform.Translate(0, moveSpeed * Time.deltaTime, 0);
             rb.AddRelativeForce(Vector3.up * moveSpeed * Time.deltaTime); //move to the direction, Vector3.up = (0,1,0)
+            fuelMount -= fuelConsume * Time.deltaTime;
             //remember the mass of game object to use AddRelativeForce()
             //Debug.Log("SPACE");
             // if(!audioSource.isPlaying)
@@ -75,7 +87,7 @@ public class RocketMovement : MonoBehaviour
     private void Rotation(float speed)
     {
         rb.freezeRotation = true; //freezing rotation if hit obstacle
-        transform.Rotate(Vector3.left * speed * Time.deltaTime);
+        transform.Rotate(Vector3.back * speed * Time.deltaTime);
         rb.freezeRotation = false;
     }
 }
