@@ -3,14 +3,18 @@ using UnityEngine.SceneManagement;
 
 public class RollerMovement : MonoBehaviour
 {
-    [SerializeField] float moveSpeed = 100f;
+    [SerializeField] float moveSpeed = 500f;
     Rigidbody rb;
+    Vector3 movement;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        // movement = new Vector3 (moveVert, Jump, -moveHor);
+        // movement = transform.TransformDirection (movement);
     }
 
-    void Update()
+    void FixedUpdate()
     {
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
         {

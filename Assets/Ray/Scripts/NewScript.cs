@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewScript : MonoBehaviour
+public class BasicMovement : MonoBehaviour
 {
     /*[SerializeField] float x = 0.1F;
     [SerializeField] double y = 0.03D; // SerializeField make you can edit on Unity Editor
@@ -10,14 +10,11 @@ public class NewScript : MonoBehaviour
 
     [SerializeField] float moveSpeed = 10f;
 
-    // Start is called before the first frame update
     void Start()
     {
-        PrintToConsole();
 
     }
 
-    // Update is called once per frame
     void Update()
     {
 
@@ -29,11 +26,6 @@ public class NewScript : MonoBehaviour
         Debug.Log("Time " + Time.deltaTime);*/
 
         Controller();
-    }
-
-    void PrintToConsole()
-    {
-        Debug.Log("Ok");
     }
 
     void Controller()
