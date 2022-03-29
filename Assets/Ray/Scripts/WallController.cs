@@ -1,13 +1,19 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WallController : MonoBehaviour
 {
+    private int currentScene = 0;
+    private string eventTag = "";
     // Rigidbody rb;
     GameObject TriggerWall;
+    [SerializeField] ParticleSystem explode;
     void Start()
     {
         TriggerWall = GameObject.Find("Trigger Wall");
         TriggerWall.SetActive(false);
+
+        currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 
     void Update()
@@ -17,10 +23,10 @@ public class WallController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        string tag = collision.gameObject.tag;
+        string eventTag = collision.gameObject.tag;
 
         // Debug.Log(tag);
-        switch(tag)
+        switch(eventTag)
         {
             case "Start":
                 GameObject[] start = GameObject.FindGameObjectsWithTag("Start");
@@ -36,20 +42,35 @@ public class WallController : MonoBehaviour
                 // GameObject.Find("Trigger Wall").SetActive(true);
                 TriggerWall.SetActive(true);
                 // GetComponent<BoxCollider>().isTrigger = true;
-                Debug.Log("DONE");
+                //Debug.Log("DONE");
                 break;
             
             case "Trap":
-                GameObject[] traps = GameObject.FindGameObjectsWithTag("Trap");
-
-                foreach(GameObject trap in traps)
-                {
-                    trap.GetComponent<BoxCollider>().isTrigger = true;
-                    // Debug.Log("TEST: " + trap.GetType());
-                }
+                collision.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                explode.Play();
+                Invoke("DelaySequence", 1);
+                //Debug.Log(collision.gameObject.GetComponent<BoxCollider>());
                 break;
             default:
                 break;
         }
+    }
+    public void DelaySequence()
+    {
+        if (eventTag.Equals("Finish"))
+            NextLevel(currentScene);
+        else
+            LoadScene(currentScene);
+    }
+    public static void LoadScene(int currentScene)
+    {
+        SceneManager.LoadScene(currentScene);
+    }
+    public static void NextLevel(int currentScene)
+    {
+        if (currentScene + 1 == SceneManager.sceneCountInBuildSettings)
+            SceneManager.LoadScene(0);
+        else
+            SceneManager.LoadScene(currentScene + 1);
     }
 }

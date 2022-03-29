@@ -37,8 +37,11 @@ public class CollsionHandler : MonoBehaviour
         // Debug.Log(GetComponent<RollerMovement>());
         switch (eventTag)
         {
-            case "Friendly":
+            case "Start":
                 Debug.Log("Game Start");
+                break;
+            case "Friendly":
+                Debug.Log("Friendly Object");
                 break;
             case "Finish":
                 //NextLevel(currentScene);
@@ -54,7 +57,8 @@ public class CollsionHandler : MonoBehaviour
                 Invoke("DelaySequence", delayTime);
                 break;
             case "Fuel":
-                // Debug.Log("collected fuel");
+
+                collision.gameObject.SetActive(false);
                 break;
             default:
                 /*Debug.Log("Rocket crashed");*/
