@@ -38,6 +38,12 @@ public class RocketMovement : MonoBehaviour
         // audioSource.volume = audioVolume;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        //Debug.Log(other.gameObject.tag);
+        Destroy(other.gameObject);
+    }
+
     void DelaySequence()
     {
         CollsionHandler.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -46,14 +52,12 @@ public class RocketMovement : MonoBehaviour
     {
         fuel.text = "Fuel: " + Mathf.Round(fuelMount);
         if(fuelMount < fuelMax) fuelMount += fuelRecovery * Time.deltaTime;
-        if(fuelMount <= 0) return;
+        if(fuelMount < 1) return;
         if (Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
         {
-            //transform.Translate(0, moveSpeed * Time.deltaTime, 0);
-            rb.AddRelativeForce(Vector3.up * moveSpeed * Time.deltaTime); //move to the direction, Vector3.up = (0,1,0)
             fuelMount -= fuelConsume * Time.deltaTime;
+            rb.AddRelativeForce(Vector3.up * moveSpeed * Time.deltaTime); //move to the direction, Vector3.up = (0,1,0)
             //remember the mass of game object to use AddRelativeForce()
-            //Debug.Log("SPACE");
             // if(!audioSource.isPlaying)
             //     audioSource.Play();
             if(!mainEngine.isEmitting)

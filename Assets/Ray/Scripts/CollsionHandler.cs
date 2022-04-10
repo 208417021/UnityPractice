@@ -57,8 +57,8 @@ public class CollsionHandler : MonoBehaviour
                 Invoke("DelaySequence", delayTime);
                 break;
             case "Fuel":
-
-                collision.gameObject.SetActive(false);
+                //collision.gameObject.GetComponent<CapsuleCollider>().isTrigger = true;
+                //collision.gameObject.SetActive(false);
                 break;
             default:
                 /*Debug.Log("Rocket crashed");*/
