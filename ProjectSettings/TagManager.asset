@@ -8,8 +8,11 @@ TagManager:
   - Friendly
   - Fuel
   - Start
-  - Trigger
   - Trap
+  - TriggerWall
+  - TriggerOn
+  - TriggerOff
+  - EndTrigger
   layers:
   - Default
   - TransparentFX

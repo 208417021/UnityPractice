@@ -33,7 +33,7 @@ public class RollerMovement : MonoBehaviour
             rb.AddForce(Vector3.back * moveSpeed * Time.deltaTime, ForceMode.Acceleration);
         }
 
-        if(transform.position.y < 0)
+        if(transform.position.y < -1)
         {
             GetComponent<RollerMovement>().enabled = false;
             Invoke("DelaySequence", 1);
@@ -44,4 +44,5 @@ public class RollerMovement : MonoBehaviour
     {
         CollsionHandler.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
+
 }
