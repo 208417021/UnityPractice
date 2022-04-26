@@ -104,6 +104,9 @@
     <Compile Include="Assets\Ray\Scripts\RocketMovement.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
     <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\TMP_TextEventCheck.cs" />
+    <Compile Include="Assets\Sam_Ui\Script\MainMenu.cs" />
+    <Compile Include="Assets\Sam_Ui\Script\RocketMenu.cs" />
+    <Compile Include="Assets\Sam_Ui\Script\RollerMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
