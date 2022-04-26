@@ -4,8 +4,7 @@ using UnityEngine.SceneManagement;
 public class CollsionHandler : MonoBehaviour
 {
     private int currentScene = 0;
-    private string eventTag = "";
-    private bool isRocket, isRoller;
+    private bool isRocket, isRoller, isGoal;
     [SerializeField] float delayTime = 1f;
     [SerializeField] bool isCheating = false;
     [SerializeField] ParticleSystem finish;
@@ -16,6 +15,7 @@ public class CollsionHandler : MonoBehaviour
         // Debug.Log("TEST: " + GetComponent<RocketMovement>() == null);
         isRocket = GetComponent<RocketMovement>() != null;
         isRoller = GetComponent<RollerMovement>() != null;
+        isGoal = false;
 
         if(isRocket)
         {
@@ -31,38 +31,32 @@ public class CollsionHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        eventTag = collision.gameObject.tag;
-        // Debug.Log(eventTag);
-        // Debug.Log(GetComponent<RocketMovement>());
-        // Debug.Log(GetComponent<RollerMovement>());
+        string eventTag = collision.gameObject.tag;
+
         switch (eventTag)
         {
-            case "Start":
-                Debug.Log("Game Start");
+            case "Fuel":
+                
                 break;
-            case "Friendly":
-                Debug.Log("Friendly Object");
+            case "Start": 
+            case"Friendly":
                 break;
             case "Finish":
-                //NextLevel(currentScene);
-                if(isRocket)
+                isGoal = true;
+                if (isRocket)
                 {
                     GetComponent<RocketMovement>().enabled = false;
                 }
-                if(isRoller)
+                if (isRoller)
                 {
                     GetComponent<RollerMovement>().enabled = false;
                 }
                 finish.Play();
                 Invoke("DelaySequence", delayTime);
-                break;
-            case "Fuel":
-                //collision.gameObject.GetComponent<CapsuleCollider>().isTrigger = true;
-                //collision.gameObject.SetActive(false);
+                GetComponent<CollsionHandler>().enabled = false;
                 break;
             default:
-                /*Debug.Log("Rocket crashed");*/
-                if(isCheating) break;
+                if(isCheating || isGoal) break;
                 if(isRocket)
                 {
                     GetComponent<RocketMovement>().enabled = false;
@@ -73,14 +67,14 @@ public class CollsionHandler : MonoBehaviour
                 }
                 crash.Play();
                 Invoke("DelaySequence", delayTime);
-                // LoadScene(currentScene);
+
                 break;
         }
     }
 
     public void DelaySequence()
     {
-        if(eventTag.Equals("Finish"))
+        if(isGoal)
             NextLevel(currentScene);
         else
             LoadScene(currentScene);

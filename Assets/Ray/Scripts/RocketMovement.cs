@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 // using CollsionHandler;
 public class RocketMovement : MonoBehaviour
 {
-    private float fuelMount = 100f;
+    public float fuelMount = 100f;
     [SerializeField] float fuelMax = 100f;
     [SerializeField] float fuelRecovery = 10f;
     [SerializeField] float fuelConsume = 35f;

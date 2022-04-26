@@ -6,12 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Sam_UI.unity
+    guid: cb1f551ec8a827640a336eb832fc710c
+  - enabled: 1
     path: Assets/Scenes/level2.unity
     guid: 8b6073d871b52ce4089ebb1d605c0df5
   - enabled: 1
     path: Assets/Scenes/level1.unity
     guid: 19f764a5ed054394cafae86c882840c6
   - enabled: 1
+    path: Assets/Scenes/Sam_02.unity
+    guid: 4f74d383281436942b7162ef93fc0c80
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: eac7c4f4d87e5f84c93d1c11a3e9bc0a
+  - enabled: 1
+    path: Assets/Scenes/Nihao#2.unity
+    guid: 6a420975981ab8142a46dacb2bba65f4
   m_configObjects: {}
