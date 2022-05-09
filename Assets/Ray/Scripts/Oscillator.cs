@@ -29,7 +29,7 @@ public class Oscillator : MonoBehaviour
         float rawSineWave = Mathf.Sin(cycle * tau);
 
         // Debug.LogError("tau: " + tau + " cycle: " + cycle + " rawSineWave: " + rawSineWave);
-        movementFactor = (rawSineWave + 1f) * moveRange / 2f; // confused here, "recaculated to go from 0 to 1"
+        movementFactor = (rawSineWave + 1f) * moveRange; // confused here, "recaculated to go from 0 to 1"
         // Debug.Log(movementFactor + " " + movementVector);
         Vector3 offset = Vector3.forward;
 
