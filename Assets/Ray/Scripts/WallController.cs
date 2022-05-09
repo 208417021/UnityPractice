@@ -27,7 +27,6 @@ public class WallController : MonoBehaviour
     {
         string eventTag = collision.gameObject.tag;
 
-        // Debug.Log(tag);
         switch (eventTag)
         {
             case "Start":
@@ -53,10 +52,14 @@ public class WallController : MonoBehaviour
                 break;
 
             case "Trap":
-                collision.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+            case "Enemy":
+                if (collision.gameObject.GetComponent<BoxCollider>() != null)
+                    collision.gameObject.GetComponent<BoxCollider>().isTrigger = true;
+                else
+                    collision.gameObject.GetComponent<CapsuleCollider>().isTrigger = true;
+
                 explode.Play();
                 Invoke("DelaySequence", 1);
-                //Debug.Log(collision.gameObject.GetComponent<BoxCollider>());
                 break;
             case "EndTrigger":
                 GameObject[] end = GameObject.FindGameObjectsWithTag("EndTrigger");

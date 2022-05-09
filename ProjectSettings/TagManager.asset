@@ -13,6 +13,7 @@ TagManager:
   - TriggerOn
   - TriggerOff
   - EndTrigger
+  - Enemy
   layers:
   - Default
   - TransparentFX
