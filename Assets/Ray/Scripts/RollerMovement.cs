@@ -6,12 +6,12 @@ public class RollerMovement : MonoBehaviour
     [SerializeField] float moveSpeed = 500f;
     Rigidbody rb;
     Vector3 movement;
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
 
-        // movement = new Vector3 (moveVert, Jump, -moveHor);
-        // movement = transform.TransformDirection (movement);
+        
     }
 
     void FixedUpdate()

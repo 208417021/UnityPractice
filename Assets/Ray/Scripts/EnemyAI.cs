@@ -4,15 +4,17 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     [SerializeField] Transform target;
-    [SerializeField] float speed = 1000f;
-    NavMeshAgent navMeshAgent;
+    [SerializeField] float speed = 300f;
+    NavMeshAgent enemy;
+
     void Start()
     {
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        enemy = GetComponent<NavMeshAgent>();
+        enemy.speed = speed;
     }
 
     void Update()
     {
-        navMeshAgent.SetDestination(target.position);
+        enemy.SetDestination(target.position);
     }
 }

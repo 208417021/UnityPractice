@@ -8,6 +8,8 @@ public class WallController : MonoBehaviour
     // Rigidbody rb;
     private GameObject[] TriggerWall;
     [SerializeField] ParticleSystem explode;
+    [SerializeField] bool isCheating = false;
+
     void Start()
     {
         TriggerWall = GameObject.FindGameObjectsWithTag("TriggerWall");
@@ -16,11 +18,6 @@ public class WallController : MonoBehaviour
             obj.SetActive(false);
 
         currentScene = SceneManager.GetActiveScene().buildIndex;
-    }
-
-    void Update()
-    {
-        
     }
 
     private void OnTriggerEnter(Collider collision)
@@ -53,6 +50,7 @@ public class WallController : MonoBehaviour
 
             case "Trap":
             case "Enemy":
+                if (isCheating) break;
                 if (collision.gameObject.GetComponent<BoxCollider>() != null)
                     collision.gameObject.GetComponent<BoxCollider>().isTrigger = true;
                 else
