@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Sam_UI.unity
     guid: cb1f551ec8a827640a336eb832fc710c
   - enabled: 1
+    path: Assets/Scenes/Sam_UI2.unity
+    guid: d185d2cef8958484999aad5e09927851
+  - enabled: 1
     path: Assets/Scenes/level2.unity
     guid: 8b6073d871b52ce4089ebb1d605c0df5
   - enabled: 1

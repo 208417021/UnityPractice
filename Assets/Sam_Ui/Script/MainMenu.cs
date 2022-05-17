@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
 {
     public void QuitGame()
     {
+        Debug.LogError("Game has been shutdown");
         Application.Quit();
     }
     public void RollerLevel()
@@ -18,10 +19,10 @@ public class MainMenu : MonoBehaviour
         switch(level)
         {
             case "Level1Button":
-                SceneManager.LoadScene(4);
+                SceneManager.LoadScene(5);
                 break;
             case "Level2Button":
-                SceneManager.LoadScene(5);
+                SceneManager.LoadScene(6);
                 break;
             case "Level3Button":
                 Debug.Log(level);
@@ -38,13 +39,13 @@ public class MainMenu : MonoBehaviour
         switch (level)
         {
             case "Level1Button":
-                SceneManager.LoadScene(1);
-                break;
-            case "Level2Button":
                 SceneManager.LoadScene(2);
                 break;
-            case "Level3Button":
+            case "Level2Button":
                 SceneManager.LoadScene(3);
+                break;
+            case "Level3Button":
+                SceneManager.LoadScene(4);
                 break;
             default:
                 Debug.LogError("You should not see this Error msg");

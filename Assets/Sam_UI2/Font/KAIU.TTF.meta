@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ca72505fec290e74eb5c7e47490b6de4
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - DFKai-SB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 759a649c42a660f45bbfd71fc638bfbe, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

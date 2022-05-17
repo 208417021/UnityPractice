@@ -6,9 +6,16 @@ public class QuitApplication : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
-            Debug.LogError("Game Closed");
+            if (SceneManager.GetActiveScene().buildIndex == 1)
+                SceneManager.LoadScene(PlayerPrefs.GetInt("Saved"));
+            else
+                SaveStage();
             //Application.Quit();
-            SceneManager.LoadScene(0);
         }
+    }
+    void SaveStage()
+    {
+        PlayerPrefs.SetInt("Saved", SceneManager.GetActiveScene().buildIndex);
+        SceneManager.LoadScene(1);
     }
 }

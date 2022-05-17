@@ -35,9 +35,6 @@ public class CollsionHandler : MonoBehaviour
 
         switch (eventTag)
         {
-            case "Fuel":
-                
-                break;
             case "Start": 
             case"Friendly":
                 break;

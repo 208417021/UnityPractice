@@ -40,8 +40,8 @@ public class RocketMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log(other.gameObject.tag);
-        Destroy(other.gameObject);
+        fuelMount += 15f;
+        other.gameObject.SetActive(false);
     }
 
     void DelaySequence()
@@ -50,6 +50,7 @@ public class RocketMovement : MonoBehaviour
     }
     void ProcessInput()
     {
+        //Debug.Log(fuelMount);
         fuel.text = "Fuel: " + Mathf.Round(fuelMount);
         if(fuelMount < fuelMax) fuelMount += fuelRecovery * Time.deltaTime;
         if(fuelMount < 1) return;
@@ -68,11 +69,9 @@ public class RocketMovement : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {
-            //transform.Rotate(-1, 0, 0);
             Rotation(rotationSpeed);
             if (!leftThruster.isEmitting)
                 leftThruster.Play();
-            //Debug.Log(GetComponent<Transform>().rotation.x);
         }
         else
             leftThruster.Stop();
@@ -82,7 +81,6 @@ public class RocketMovement : MonoBehaviour
             Rotation(-rotationSpeed);
             if (!rightThruster.isEmitting)
                 rightThruster.Play();
-            //Debug.Log(GetComponent<Transform>().rotation.x);
         }
         else
             rightThruster.Stop();

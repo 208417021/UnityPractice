@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 52061182}
   - component: {fileID: 52061181}
   - component: {fileID: 52061180}
-  - component: {fileID: 52061183}
   m_Layer: 5
   m_Name: Level1Button
   m_TagString: Untagged
@@ -257,18 +256,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 52061178}
   m_CullTransparentMesh: 1
---- !u!114 &52061183
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 52061178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee6863c398af0844a7c8c63cd7a5eb8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &72032259
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,7 +269,7 @@ GameObject:
   - component: {fileID: 72032262}
   - component: {fileID: 72032261}
   m_Layer: 5
-  m_Name: BackButtom
+  m_Name: BackButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -980,7 +967,7 @@ GameObject:
   - component: {fileID: 626207622}
   - component: {fileID: 626207621}
   m_Layer: 5
-  m_Name: NormalButton
+  m_Name: MiddleButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,19 +1036,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 626207622}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 726744968}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Difficulty
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &626207622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2014,7 +1989,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2067315338}
+      - m_Target: {fileID: 692170937}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: RollerLevel
         m_Mode: 1
@@ -2424,19 +2399,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1395024534}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 726744968}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: Difficulty
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1395024534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2948,6 +2911,7 @@ GameObject:
   - component: {fileID: 1496853668}
   - component: {fileID: 1496853667}
   - component: {fileID: 1496853666}
+  - component: {fileID: 1496853669}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -3069,6 +3033,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496853664}
   m_CullTransparentMesh: 1
+--- !u!114 &1496853669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1496853664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ee6863c398af0844a7c8c63cd7a5eb8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1499199614
 GameObject:
   m_ObjectHideFlags: 0
@@ -3521,7 +3497,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2067315338}
+      - m_Target: {fileID: 692170937}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: RollerLevel
         m_Mode: 1
@@ -3701,7 +3677,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2067315336}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ee6863c398af0844a7c8c63cd7a5eb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8027b8985cba7c24c837112704af9843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2102373474
@@ -3787,7 +3763,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2067315338}
+      - m_Target: {fileID: 692170937}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: RollerLevel
         m_Mode: 1
