@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems; // for recognize button which was clicked
@@ -7,6 +5,13 @@ using UnityEngine.EventSystems; // for recognize button which was clicked
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] AudioSource clickSound;
+
+    private void Start()
+    {
+        clickSound = GetComponent<AudioSource>();
+    }
+
     public void QuitGame()
     {
         Debug.LogError("Game has been shutdown");
@@ -70,26 +75,9 @@ public class MainMenu : MonoBehaviour
                 break;
         }
     }
-    //public void RollerLevel1()
-    //{
-    //    SceneManager.LoadScene(1);
-    //}
 
-    //public void RollerLevel2()
-    //{
-
-    //}
-
-    //public void RollerLevel3()
-    //{
-
-    //}
-    //public void EasyRocket()
-    //{
-
-    //}
-    //public void NormalRocket()
-    //{
-
-    //}
+    public void ClickSound()
+    {
+        clickSound.Play();
+    }
 }

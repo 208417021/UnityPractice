@@ -13,17 +13,17 @@ public class RocketMovement : MonoBehaviour
     [SerializeField] ParticleSystem leftThruster;
     [SerializeField] ParticleSystem rightThruster;
     [SerializeField] TMPro.TextMeshProUGUI fuel;
+    [SerializeField] AudioSource engineSound;
     // [SerializeField] float audioVolume = 1f;
     // Start is called before the first frame update
     Rigidbody rb;
-    // AudioSource audioSource;
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         // fuel = GetComponent<TextMesh>();
         fuel.text = "Finally";
         fuelMount = fuelMax;
-        // audioSource = GetComponent<AudioSource>();
+        engineSound = GetComponent<Audio>().GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -59,13 +59,17 @@ public class RocketMovement : MonoBehaviour
             fuelMount -= fuelConsume * Time.deltaTime;
             rb.AddRelativeForce(Vector3.up * moveSpeed * Time.deltaTime); //move to the direction, Vector3.up = (0,1,0)
             //remember the mass of game object to use AddRelativeForce()
-            // if(!audioSource.isPlaying)
-            //     audioSource.Play();
-            if(!mainEngine.isEmitting)
+            
+            if(!engineSound.isPlaying)
+                engineSound.Play();
+            if (!mainEngine.isEmitting)
                 mainEngine.Play();
         }
         else
+        {
             mainEngine.Stop();
+            engineSound.Stop();
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
         {

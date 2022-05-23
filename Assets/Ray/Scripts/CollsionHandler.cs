@@ -9,6 +9,7 @@ public class CollsionHandler : MonoBehaviour
     [SerializeField] bool isCheating = false;
     [SerializeField] ParticleSystem finish;
     [SerializeField] ParticleSystem crash;
+    [SerializeField] AudioSource crashSound;
     private void Start()
     {
         currentScene = SceneManager.GetActiveScene().buildIndex; // need to transfer scene to index
@@ -20,6 +21,7 @@ public class CollsionHandler : MonoBehaviour
         if(isRocket)
         {
             GetComponent<RocketMovement>().enabled = true;
+            crashSound = GetComponent<Audio>().GetComponent<AudioSource>();
         }
         if(isRoller)
         {
@@ -63,6 +65,7 @@ public class CollsionHandler : MonoBehaviour
                     GetComponent<RollerMovement>().enabled = false;
                 }
                 crash.Play();
+                crashSound.Play();
                 Invoke("DelaySequence", delayTime);
 
                 break;
